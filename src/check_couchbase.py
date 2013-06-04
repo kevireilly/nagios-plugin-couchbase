@@ -78,20 +78,20 @@ def check_levels(message, status_value, divide):
 			size_type = "KB"
 
 	if options.critical > options.warning:
-		if status_value >= options.critical:
+		if status >= options.critical:
 			print "CRITICAL - " + message, status, size_type
 			return sys.exit(nagios_codes['CRITICAL'])
-		elif status_value >= options.warning:
+		elif status >= options.warning:
 			print "WARNING - " + message, status, size_type
 			return sys.exit(nagios_codes['WARNING'])
 		else:
 			print "OK - " + message, status, size_type
 			return sys.exit(nagios_codes['OK'])
 	else:
-		if status_value >= options.warning:
+		if status >= options.warning:
 			print "WARNING - " + message, status, size_type
 			return sys.exit(nagios_codes['WARNING'])
-		elif status_value >= options.critical:
+		elif status >= options.critical:
 			print "CRITICAL - " + message, status, size_type
 			return sys.exit(nagios_codes['CRITICAL'])
 		else:
